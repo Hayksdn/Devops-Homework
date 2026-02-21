@@ -1,4 +1,3 @@
-#!/bin/bash
+#!/bin/bash 
 
-find $1 -type f | xargs ls -lS | head -n 1 | awk -F ' ' '{print $9}'
-
+dir -lR  ${1:-.}| grep "^-" | sort -k4 | tail -n 1 | awk '{print $NF}'
